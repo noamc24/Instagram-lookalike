@@ -1,0 +1,45 @@
+    body {
+      background-color: var(--bg-color);
+    }
+    .profile-header {
+      display: flex;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 3rem;
+    }
+    .profile-info h2 {
+      font-size: 28px;
+      font-weight: 300;
+    }
+    .profile-stats {
+      display: flex;
+      gap: 2rem;
+      margin: 1rem 0;
+    }
+    .profile-bio {
+      font-size: 14px;
+    }
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .posts-grid img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .edit-btn {
+      border: 1px solid #ccc;
+      padding: 5px 15px;
+      font-size: 14px;
+      background-color: white;
+      border-radius: 4px;
+    }
