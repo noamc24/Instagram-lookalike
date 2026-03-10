@@ -13,12 +13,11 @@ The goal of the project was to build a **realistic full-stack social application
 
 # 👨‍💻 About the Developer
 
-**Noam**  
-Computer Science Student  
-The College of Management Academic Studies
+**Noam Cohen**  
+Computer Science Student at he College of Management in Rhishon LeZion
 
-I am passionate about software development, full-stack systems, and building real interactive applications.  
-This project was built as part of my academic studies in web application development and demonstrates my ability to design and implement a complete web system.
+I am passionate about software development, full-stack systems, and building real interactive systems.  
+This project was built as part of my academic studies in web application development' year I and demonstrates my ability to design and implement a complete web system.
 
 ---
 
@@ -29,7 +28,7 @@ Follow these steps to run the project locally.
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/FinalIg.git
+git clone https://github.com/noamc24/Instagram-lookalike.git
 cd FinalIg
 ```
 
@@ -80,8 +79,7 @@ http://localhost:3000
 
 When the database is empty, the project automatically generates demo users, posts, and stories so the feed is populated.
 
-Example demo users:
-
+our demo users are:
 - noam_demo
 - ron_demo
 - itzik_demo
