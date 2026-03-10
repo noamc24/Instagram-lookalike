@@ -14,7 +14,8 @@ The goal of the project was to build a **realistic full-stack social application
 # 👨‍💻 About the Developer
 
 **Noam Cohen**  
-Computer Science Student at he College of Management in Rhishon LeZion
+hey,
+I am a Computer Science Student at he College of Management in Rhishon LeZion
 
 I am passionate about software development, full-stack systems, and building real interactive systems.  
 This project was built as part of my academic studies in web application development' year I and demonstrates my ability to design and implement a complete web system.
