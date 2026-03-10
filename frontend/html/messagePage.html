@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messages</title>
+    <link rel="shortcut icon" href="/assets/icons/instagram-icon-tab.png"/>
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/messagePage.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="dm-page">
+      <!-- Sidebar -->
+      <aside class="dm-sidebar">
+        <div class="sidebar-top">
+          <div class="sidebar-user">
+            <h2>Messages</h2>
+            <span id="sidebarUsername">@username</span>
+          </div>
+
+          <button class="icon-btn" aria-label="New message">
+            <i class="bx bx-edit-alt"></i>
+          </button>
+        </div>
+
+        <div class="sidebar-search">
+          <i class="bx bx-search"></i>
+          <input type="text" placeholder="Search messages" />
+        </div>
+
+        <div class="sidebar-section-title">Chats</div>
+
+        <!-- פה JS יבנה את כל רשימת השיחות -->
+        <div class="friends-list"></div>
+
+        <div class="sidebar-actions">
+          <div class="group-option" id="groupChat">
+            <i class="bx bx-group"></i>
+            <span>Groups Chat</span>
+          </div>
+
+          <button id="createFromFollowingBtn" class="create-group-btn">
+            Create Group From Following
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main chat -->
+      <main class="dm-chat">
+        <div class="chat-header" id="chatHeader"></div>
+        <div class="chat-messages" id="chatMessages"></div>
+
+        <div class="chat-input-wrap">
+          <div class="chat-input">
+            <button class="input-icon" aria-label="Emoji" type="button">
+              <i class="bx bx-smile"></i>
+            </button>
+
+            <input type="text" id="chatInput" placeholder="Message..." />
+            <button class="input-icon" aria-label="Image" type="button">
+              <i class="bx bx-image"></i>
+            </button>
+            <button class="send-btn" id="sendBtn" type="button">Send</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="groupPopup">
+    <div id="groupPopupContent">
+    <h3>Create New Group</h3>
+
+    <input
+      type="text"
+      id="newGroupName"
+      placeholder="Enter group name..."/>
+
+    <div id="groupMembersList" class="group-members-list"></div>
+    <button class="createBtn" type="button">Create</button>
+    <button class="cancelBtn" type="button">Cancel</button>
+  </div>
+</div>
+
+    <script src="/js/messagePage.js"></script>
+  </body>
+</html>
