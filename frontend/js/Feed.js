@@ -95,7 +95,7 @@ function refreshStoriesBar() {
     myTile.className = "story-tile";
     myTile.style.cursor = "pointer";
     myTile.innerHTML = `
-      <div class="my-story-avatar-wrap" style="position:relative; width:90px; height:90px;">
+      <div class="my-story-avatar-wrap" style="position:relative; width:96px; height:96px;">
         <img id="myStoryAvatar" src="${getCurrentProfilePic()}" alt="you" class="my-story-avatar-img" />
         <div class="add-badge" id="myStoryAddBadge">+</div>
       </div>
@@ -150,7 +150,7 @@ function refreshStoriesBar() {
     // use same avatar structure and classes as my story tile
     return `
       <div class="story-tile ${st.viewed ? 'story-viewed' : ''}" style="cursor:pointer" onclick="openStoryFromBar(${idx})">
-        <div class="story-avatar-wrap" style="position:relative;width:90px;height:90px;">
+        <div class="story-avatar-wrap" style="position:relative;width:96px;height:96px;">
           <img src="${avatar}" alt="${name}" class="story-avatar-img" />
         </div>
         <p style="font-size:12px;margin-top:6px;color:#333;text-align:center">${name}</p>
@@ -532,7 +532,7 @@ async function handlePostUpload() {
             <i class='bx bx-heart'></i> 
             <span class="like-count">0</span>
           </button>
-          <button class="cmnt-btn" onclick="toggleCommentsSidebar(this)">💬 תגובות <span class="comment-count">0</span></button>
+          <button class="cmnt-btn" data-post-id="${post._id}" onclick="toggleCommentsSidebar(this, '${post._id}')">💬 תגובות <span class="comment-count">0</span></button>
         </div>
 
         <div class="post-caption">
@@ -801,22 +801,29 @@ function showHeart(container) {
   setTimeout(() => heart.classList.remove("active"), 600);
 }
 
-function toggleCommentsSidebar(button) {
+function toggleCommentsSidebar(button, postId) {
   const sidebar = document.getElementById("comments-sidebar");
   if (!sidebar) return console.error("❌ לא נמצא אלמנט עם id=comments-sidebar");
 
   sidebar.classList.remove("d-none");
-  currentPost = button.closest(".post");
-  currentPostId = currentPost.dataset.id;
+
+  // Try explicit postId first, then fallback to data attributes / post container
+  currentPostId = postId || button.dataset.postId || button.closest(".post")?.dataset.id;
+  if (!currentPostId) return console.error("❌ לא נמצא postId עבור כפתור התגובות");
+
+  currentPost = button.closest(".post") || document.querySelector(`.post[data-id="${currentPostId}"]`);
+  if (!currentPost) return console.error("❌ לא נמצא אלמנט פוסט עבור postId", currentPostId);
 
   const previewContainer = document.getElementById("post-preview");
-  previewContainer.innerHTML = "";
-  const clonedPost = currentPost.cloneNode(true);
-  previewContainer.appendChild(clonedPost);
+  if (previewContainer) {
+    previewContainer.innerHTML = "";
+    const clonedPost = currentPost.cloneNode(true);
+    previewContainer.appendChild(clonedPost);
 
-  clonedPost.querySelectorAll(".like-btn").forEach((likeBtn) => {
-    likeBtn.addEventListener("click", () => toggleLike(likeBtn));
-  });
+    clonedPost.querySelectorAll(".like-btn").forEach((likeBtn) => {
+      likeBtn.addEventListener("click", () => toggleLike(likeBtn));
+    });
+  }
 
   loadComments(currentPostId);
 }
@@ -1045,7 +1052,7 @@ async function renderFeed(posts) {
             <span class="like-count">${likesArr.length}</span>
           </button>
 
-          <button class="cmnt-btn" onclick="toggleCommentsSidebar(this)">
+          <button class="cmnt-btn" data-post-id="${post._id}" onclick="toggleCommentsSidebar(this, '${post._id}')">
             💬 Comments <span class="comment-count">${commentsArr.length}</span>
           </button>
           <button class="share-btn" onclick="openShareModal(this)">

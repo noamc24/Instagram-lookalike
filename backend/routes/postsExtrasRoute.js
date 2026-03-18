@@ -1,6 +1,7 @@
 const express = require("express");
-const router = express.Router();
 const postExtrasController = require("../controller/postsExtrasController");
+
+const router = express.Router();
 
 router.post("/like", postExtrasController.likePost);
 router.post("/unlike", postExtrasController.unlikePost);

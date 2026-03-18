@@ -212,15 +212,15 @@
 
 #myStoryTile .my-story-avatar-wrap {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 96px;
+  height: 96px;
 }
 
 /* my-story uses wrapper ring too */
 #myStoryTile .my-story-avatar-wrap {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 96px;
+  height: 96px;
   padding: 4px;
   border-radius: 50%;
   background: #eee;
@@ -309,8 +309,8 @@
 /* other stories now use .story-avatar-img and avatar-wrap for consistent sizing */
 .story-avatar-wrap {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 96px;
+  height: 96px;
   padding: 4px;          /* ring thickness */
   border-radius: 50%;
   background: linear-gradient(45deg, #ff8e15, #ff8019, #f25b5b, #cc2366, #bc1888);
@@ -337,8 +337,8 @@
 }
 
 .close img {
-  width: 90px;
-  height: 90px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   padding: 4px;
   background: linear-gradient(45deg, #05b51f, #0db504, #3ed004, #04951c, #02a13c);
@@ -389,8 +389,8 @@ body {
 }
 
 .dark-mode .stories-bar img {
-  width: 90px;
-  height: 90px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   padding: 4px;
   object-fit: cover;

@@ -1,11 +1,10 @@
-const express = require('express');
-const social = require('../controller/socialController');
+const express = require("express");
+const socialController = require("../controller/socialController");
 
 const router = express.Router();
 
-// Facebook Graph
-router.get('/facebook/latest', social.getFacebookLatest);
-router.get('/facebook/webhook', social.verifyFacebookWebhook);  // verification handshake
-router.post('/facebook/webhook', social.receiveFacebookWebhook); // events
+router.get("/facebook/latest", socialController.getFacebookLatest);
+router.get("/facebook/webhook", socialController.verifyFacebookWebhook);
+router.post("/facebook/webhook", socialController.receiveFacebookWebhook);
 
 module.exports = router;

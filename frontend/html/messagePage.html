@@ -15,8 +15,15 @@
       <aside class="dm-sidebar">
         <div class="sidebar-top">
           <div class="sidebar-user">
-            <h2>Messages</h2>
-            <span id="sidebarUsername">@username</span>
+            <div class="sidebar-user-row">
+              <button class="icon-btn back-btn" aria-label="Back to feed" type="button" onclick="window.location.assign('/feed')">
+                <i class="bx bx-arrow-back"></i>
+              </button>
+              <div class="sidebar-title">
+                <h2>Messages</h2>
+                <span id="sidebarUsername">@username</span>
+              </div>
+            </div>
           </div>
 
           <button class="icon-btn" aria-label="New message">
@@ -41,7 +48,7 @@
           </div>
 
           <button id="createFromFollowingBtn" class="create-group-btn">
-            Create Group From Following
+            Create new Group
           </button>
         </div>
       </aside>

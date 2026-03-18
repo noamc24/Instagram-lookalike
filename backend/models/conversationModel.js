@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const groupSchema = new mongoose.Schema({
+const conversationSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
   description: { type: String, default: "" },
   isPublic: { type: Boolean, default: false },
@@ -18,4 +18,4 @@ const groupSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model("Group", groupSchema);
+module.exports = mongoose.model("Conversation", conversationSchema);

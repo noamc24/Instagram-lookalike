@@ -35,6 +35,30 @@ input {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  min-height: 0;
+}
+
+/* mobile behavior */
+.icon-btn.mobile-only {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .icon-btn.mobile-only {
+    display: inline-flex;
+  }
+
+  .dm-page {
+    grid-template-columns: 1fr;
+  }
+
+  .dm-chat {
+    display: none;
+  }
+
+  .dm-sidebar {
+    width: 100%;
+  }
 }
 
 .sidebar-top {
@@ -46,6 +70,24 @@ input {
   justify-content: space-between;
 }
 
+.sidebar-user {
+  min-width: 0;
+}
+
+.sidebar-user-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+}
+
 .sidebar-user h2 {
   margin: 0;
   font-size: 20px;
@@ -54,8 +96,6 @@ input {
 }
 
 .sidebar-user span {
-  display: block;
-  margin-top: 2px;
   font-size: 13px;
   color: var(--color-text-muted);
 }
@@ -119,6 +159,7 @@ input {
 
 .friends-list {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   padding: 0 8px 8px;
 }
@@ -219,6 +260,7 @@ input {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  min-height: 0;
   background: var(--color-bg);
 }
 
@@ -266,6 +308,7 @@ input {
 
 .chat-messages {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   padding: 24px 28px;
   background: var(--color-bg);

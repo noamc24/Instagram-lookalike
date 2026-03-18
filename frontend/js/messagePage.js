@@ -49,16 +49,17 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "Ron.Drin7",
       avatar: "/assets/Photos/prfl6.png",
       status: "Active 2h ago",
-      preview: "",
+      preview: "Active 2h ago",
       messages: [
         { type: "friend", text: "Yooooo" },
         { type: "personal", text: "Ayoooo" },
-        { type : "system", text: "Active 2 hours ago" },
         { type: "personal", text: "Spent like two hours debugging one line." },
-        { type: "friend", text: "" },
-        { type: "personal", text: "F" },
-        { type: "friend", text: "" },
-        { type: "personal", text: "" }      
+        { type: "friend", text: "Yo that suck dude" },
+        { type: "personal", text: "fr" },
+        { type : "system", text: "" },
+        { type: "personal", text: "still debugging :(" },      
+        { type: "friend", text: " :/" },
+        { type : "system", text: "Seen 2 hours ago" }
      ]
     },
     {
@@ -67,7 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
       avatar: "/assets/Photos/prfl3.png",
       status: "Active 5h ago",
       preview: "Shared a post · 5h",
-      messages: [{ type: "friend", text: "Big news coming soon." }]
+      messages:[
+        { type: "friend", text: "Big news coming soon." },
+        { type: "personal", text: "cant wait" }
+      ]
     },
     {
       id: "Sultan29",
@@ -81,9 +85,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ]
     },
     {
-      id: "I.D.F",
-      name: "I.D.F",
-      avatar: "/assets/Photos/IDF Logo.png",
+      id: "itzik123213",
+      name: "itzik123213",
+      avatar: "/assets/Photos/prfl6.png",
       status: "Active now",
       preview: "New photo · 1d",
       messages: [
@@ -124,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         activeChatId = chat.id;
         renderSidebar();
         renderActiveChat();
+        if (isMobileLayout()) showChat();
       });
 
       friendsList.appendChild(friend);
@@ -133,6 +138,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderHeader(chat) {
     chatHeader.innerHTML = `
       <div class="chat-user">
+        <button class="icon-btn back-btn mobile-only" aria-label="Back to chats" type="button" onclick="showChatList()">
+          <i class="bx bx-arrow-back"></i>
+        </button>
         <img
           src="${chat.avatar}"
           alt="${escapeHtml(chat.name)}"
@@ -203,6 +211,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
     renderHeader(activeChat);
     renderMessages(activeChat);
+
+    if (isMobileLayout()) {
+      // on mobile, always show chat (hide sidebar) when a chat is active
+      showChat();
+    }
+  }
+
+  const MOBILE_BREAKPOINT = 760;
+
+  function isMobileLayout() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+  }
+
+  function showChatList() {
+    const sidebar = document.querySelector('.dm-sidebar');
+    const chat = document.querySelector('.dm-chat');
+    if (!sidebar || !chat) return;
+
+    sidebar.style.display = 'flex';
+    if (isMobileLayout()) {
+      chat.style.display = 'none';
+    } else {
+      chat.style.display = 'flex';
+    }
+  }
+
+  function showChat() {
+    const sidebar = document.querySelector('.dm-sidebar');
+    const chat = document.querySelector('.dm-chat');
+    if (!sidebar || !chat) return;
+
+    // Always ensure chat is visible; only hide sidebar on mobile.
+    chat.style.display = 'flex';
+    if (isMobileLayout()) {
+      sidebar.style.display = 'none';
+    }
+  }
+
+  function updateMobileView() {
+    if (!isMobileLayout()) {
+      // ensure both are visible on desktop
+      const sidebar = document.querySelector('.dm-sidebar');
+      const chat = document.querySelector('.dm-chat');
+      if (!sidebar || !chat) return;
+      sidebar.style.display = 'flex';
+      chat.style.display = 'flex';
+      return;
+    }
+
+    // on mobile, start on the chat list view
+    showChatList();
   }
 
   function sendMessage() {
@@ -439,4 +498,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderSidebar();
   renderActiveChat();
+  updateMobileView();
+  window.addEventListener("resize", updateMobileView);
+
+  // expose helpers for inline onclick attributes
+  window.showChatList = showChatList;
+  window.showChat = showChat;
 });

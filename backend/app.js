@@ -73,7 +73,6 @@ app.use("/api/messages", messagesRouter);
 // =========================
 
 app.get("/", (req, res) => {
-  console.log("HOME ROUTE HIT");
   res.sendFile(path.join(__dirname, "..", "frontend", "html", "feed.html"));
 });
 

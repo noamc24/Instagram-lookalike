@@ -1,34 +1,63 @@
-const path = require("path");
-const multer = require("multer");
 const express = require("express");
+const multer = require("multer");
+const path = require("path");
+const fs = require("fs");
 const postsController = require("../controller/postsController");
 
 const router = express.Router();
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) =>
-    cb(null, path.join(__dirname, "../uploads")),
+const uploadDir = path.join(__dirname, "../uploads");
 
-  filename: (req, file, cb) =>
-    cb(null, Date.now() + path.extname(file.originalname)),
+// יצירת תיקיית uploads אם לא קיימת
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, uploadDir);
+  },
+  filename: (req, file, cb) => {
+    cb(
+      null,
+      `${Date.now()}_${Math.round(Math.random() * 1e9)}${path.extname(file.originalname)}`
+    );
+  },
 });
 
 const upload = multer({
   storage,
   limits: {
-    fieldSize: 5 * 1024 * 1024,
+    fileSize: 50 * 1024 * 1024,
   },
 });
 
-// Get all posts by username
-router.get("/user/:username", postsController.getPostsByUser);
+router.post(
+  "/",
+  (req, res, next) => {
+    upload.single("file")(req, res, (err) => {
+      if (err) {
+        console.error("POST UPLOAD ERROR:", err);
+        return res.status(400).json({
+          success: false,
+          message: "שגיאה בהעלאת הקובץ",
+          error: err.message,
+        });
+      }
 
-router.put("/:id", postsController.updatePost);
+      console.log("POST FILE:", req.file);
+      console.log("POST BODY:", req.body);
+      next();
+    });
+  },
+  postsController.createPost
+);
+
+router.get("/user/:username", postsController.getPostsByUser);
 router.get("/feed/:username", postsController.getFeed);
 router.get("/explore", postsController.getExplore);
 
-router.post("/", upload.single("file"), postsController.createPost);
-
+router.put("/:id", postsController.updatePost);
 router.delete("/:id/:username", postsController.deletePost);
 
 module.exports = router;
