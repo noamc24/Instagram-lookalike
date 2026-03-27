@@ -1221,3 +1221,226 @@ header {
   height: 100%;
   object-fit: cover;
 }
+.pac-container {
+  z-index: 1250 !important;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.nav-link-clean {
+  text-decoration: none;
+}
+
+.feed-sidebar-large {
+  width: clamp(17rem, 17.4vw, 20.875rem);
+}
+
+.instagram-logo-large {
+  max-width: clamp(6rem, 6.25vw, 7.5rem);
+  width: 100%;
+  height: auto;
+}
+
+.sidebar-profile-link {
+  cursor: pointer;
+}
+
+.sidebar-profile-pic {
+  width: clamp(1.625rem, 1.56vw, 1.875rem);
+  height: clamp(1.625rem, 1.56vw, 1.875rem);
+  object-fit: cover;
+}
+
+.sidebar-bottom-spacer {
+  margin-top: clamp(4rem, 13.9vh, 9.375rem);
+}
+
+.feed-sidebar-medium {
+  width: clamp(4.25rem, 3.9vw, 4.688rem);
+}
+
+.instagram-logo-medium {
+  max-width: clamp(1.9rem, 1.93vw, 2.313rem);
+  width: 100%;
+  height: auto;
+}
+
+.profile-pic-medium {
+  max-width: clamp(1.625rem, 1.56vw, 1.875rem);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.medium-sidebar-bottom-spacer {
+  margin-top: clamp(2.5rem, 6.5vh, 4.375rem);
+}
+
+.top-controls {
+  width: min(60%, 52rem);
+  margin-inline-start: auto;
+}
+
+.top-search-wrapper {
+  max-width: clamp(11rem, 12.7vw, 15.25rem);
+  width: 100%;
+  min-height: clamp(2rem, 3.2vh, 2.188rem);
+}
+
+.main-content-offset {
+  margin-left: clamp(18rem, 17.9vw, 21.5rem);
+}
+
+.floating-scroll-top {
+  position: fixed;
+  bottom: clamp(4rem, 6.5vh, 4.375rem);
+  right: clamp(0.75rem, 1.05vw, 1.25rem);
+  display: none;
+  z-index: 1000;
+  width: clamp(2.75rem, 2.6vw, 3.125rem);
+  height: clamp(2.75rem, 2.6vw, 3.125rem);
+  font-size: clamp(1rem, 1.15vw, 1.375rem);
+  padding: 0;
+  text-align: center;
+  line-height: 1;
+}
+
+.typing-indicator {
+  display: none;
+  font-size: 0.875rem;
+  color: gray;
+  margin-bottom: 0.5rem;
+}
+
+.floating-filter-btn {
+  position: fixed;
+  bottom: clamp(7rem, 13.9vh, 9.375rem);
+  right: clamp(0.75rem, 1.05vw, 1.25rem);
+  border-radius: 50%;
+  width: clamp(2.75rem, 2.6vw, 3.125rem);
+  height: clamp(2.75rem, 2.6vw, 3.125rem);
+  padding: 0;
+  font-size: clamp(1rem, 1.05vw, 1.25rem);
+  text-align: center;
+  line-height: 1;
+}
+
+.share-pic {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.share-pic-1 {
+  background-image: url("/assets/Photos/prfl5.png");
+}
+
+.share-pic-2 {
+  background-image: url("/assets/Photos/Elad.png");
+}
+
+.share-pic-3 {
+  background-image: url("/assets/Photos/prfl1.png");
+}
+
+.share-pic-4 {
+  background-image: url("/assets/Photos/prfl2.png");
+}
+
+.share-pic-5 {
+  background-image: url("/assets/Photos/prfl8.png");
+}
+
+.share-pic-6 {
+  background-image: url("/assets/Photos/prfl6.png");
+}
+
+.share-pic-7 {
+  background-image: url("/assets/Photos/prfl5.png");
+}
+
+.share-pic-8 {
+  background-image: url("/assets/Photos/prfl7.png");
+}
+
+.threads-icon {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+.share-success-message {
+  color: green;
+  margin-top: 0.625rem;
+}
+
+.brush-size-range {
+  width: min(100%, 10rem);
+}
+
+.story-options-btn-hidden {
+  display: none;
+  margin-left: 0.5rem;
+}
+
+.story-options-icon {
+  font-size: 1.375rem;
+  line-height: 1;
+  color: #fff;
+}
+
+.story-options-menu-custom {
+  display: none;
+  position: absolute;
+  top: clamp(2rem, 3.5vh, 2.375rem);
+  right: clamp(2.5rem, 2.8vw, 3.375rem);
+  min-width: clamp(6.5rem, 6.25vw, 7.5rem);
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.13);
+  z-index: 1002;
+  padding: 0.375rem 0;
+}
+
+#storyDeleteBtn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #e74c3c;
+}
+
+#storyAddBtn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #0095f6;
+}
+
+@media (max-width: 75rem) {
+  .top-controls {
+    width: min(68%, 44rem);
+  }
+
+  .main-content-offset {
+    margin-left: clamp(5rem, 6vw, 6rem);
+  }
+}
+
+@media (max-width: 62rem) {
+  .top-controls {
+    width: min(82%, 36rem);
+  }
+}
+
+@media (max-width: 48rem) {
+  .top-controls {
+    width: 100%;
+  }
+
+  .main-content-offset {
+    margin-left: 0;
+  }
+
+  .story-options-menu-custom {
+    right: 3rem;
+  }
+}

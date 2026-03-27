@@ -1511,3 +1511,82 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+      // Force location input to always be editable, even if Google sets readonly/disabled
+      setInterval(function() {
+        const locInput = document.getElementById('locationInput');
+        if (locInput) {
+          locInput.removeAttribute('readonly');
+          locInput.removeAttribute('disabled');
+        }
+      }, 500);
+      // Google Places Autocomplete: never overwrite input value, only save place data, always allow typing
+      document.addEventListener('DOMContentLoaded', function() {
+        const locInput = document.getElementById('locationInput');
+        window._lastLocationData = null;
+        if (locInput && window.google && window.google.maps) {
+          const autocomplete = new google.maps.places.Autocomplete(locInput, {
+            types: ['geocode'],
+            fields: ['formatted_address', 'geometry', 'place_id']
+          });
+          autocomplete.addListener('place_changed', function() {
+            const place = autocomplete.getPlace();
+            if (place && place.formatted_address && place.place_id && place.geometry) {
+              window._lastLocationData = {
+                address: place.formatted_address,
+                placeId: place.place_id,
+                source: 'google',
+                geo: {
+                  type: 'Point',
+                  coordinates: [
+                    place.geometry.location.lng(),
+                    place.geometry.location.lat()
+                  ]
+                }
+              };
+            }
+          });
+          // ודא שהשדה תמיד ניתן לעריכה (הסרה יזומה של readonly/disabled)
+          locInput.removeAttribute('readonly');
+          locInput.removeAttribute('disabled');
+        }
+      });
+      // Navigation controls: load Following under Home, Explore under Explore
+      (function () {
+        const API_BASE = 'http://localhost:3000';
+
+        async function loadFollowing() {
+          try {
+            const username = localStorage.getItem('loggedInUser');
+            if (!username) return;
+            const res = await fetch(`${API_BASE}/api/posts/feed/${username}`);
+            const posts = await res.json();
+            if (window.renderFeed) window.renderFeed(posts);
+          } catch (_) {}
+        }
+
+        async function loadExplore() {
+          try {
+            const res = await fetch(`${API_BASE}/api/posts/explore`);
+            const posts = await res.json();
+            if (window.renderFeed) window.renderFeed(posts);
+          } catch (_) {}
+        }
+
+        function bind(id, handler) {
+          const el = document.getElementById(id);
+          if (el) el.addEventListener('click', (e) => { e.preventDefault(); handler(); });
+        }
+
+        // Large sidebar
+        bind('navHomeLink', loadFollowing);
+        bind('navExploreLink', loadExplore);
+        // Medium sidebar
+        bind('navHomeLinkMd', loadFollowing);
+        bind('navExploreLinkMd', loadExplore);
+        // Bottom nav (sm)
+        bind('navHomeLinkSm', loadFollowing);
+        bind('navExploreLinkSm', loadExplore);
+      })();
