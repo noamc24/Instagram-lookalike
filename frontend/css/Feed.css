@@ -5,18 +5,18 @@
   display: flex;
   align-items: center;
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  margin-bottom: 14px;
-  padding: 10px 16px;
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.04);
+  margin-bottom: 0.875rem;
+  padding: 0.625rem 0.833vw;
   transition: box-shadow 0.2s, background 0.2s;
   position: relative;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .suggestion:hover {
   background: #f7f7f7;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.08);
 }
 
 .suggestion-link {
@@ -25,18 +25,18 @@
   text-decoration: none;
   color: inherit;
   flex: 1;
-  gap: 12px;
+  gap: 0.625rem;
 }
 
 .suggestion-image,
 .suggestion img {
-  width: 48px;
-  height: 48px;
+  width: clamp(2.25rem, 2.5vw, 3rem);
+  height: clamp(2.25rem, 2.5vw, 3rem);
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #e0e0e0;
+  border: 0.125rem solid #e0e0e0;
   background: #f0f0f0;
-  margin-right: 8px;
+  margin-inline-end: 0.417vw;
 }
 
 .suggestion-info {
@@ -52,7 +52,7 @@
 .suggestion-name {
   font-weight: 600;
   font-size: 1.05rem;
-  margin-bottom: 2px;
+  margin-bottom: 0.125rem;
   display: block;
   text-align: left;
   line-height: 1.2;
@@ -71,8 +71,8 @@
   background: none;
   color: #0095f6;
   border: none;
-  border-radius: 20px;
-  padding: 6px 18px;
+  border-radius: 1.25rem;
+  padding: 0.375rem 0.938rem;
   font-weight: 500;
   font-size: 1rem;
   margin-left: auto;
@@ -90,15 +90,15 @@
   color: #fff;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 37.5rem) {
   .suggestion-image,
   .suggestion img {
-    width: 36px;
-    height: 36px;
+    width: 2.25rem;
+    height: 2.25rem;
   }
 
   .suggestion {
-    padding: 8px 8px;
+    padding: 0.5rem 0.5rem;
   }
 }
 
@@ -108,8 +108,8 @@
 .story-options-btn {
   background: rgba(0, 0, 0, 0.18);
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,20 +123,20 @@
 }
 
 .story-options-menu {
-  min-width: 120px;
+  min-width: 7.5rem;
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.13);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.13);
   z-index: 1002;
-  padding: 6px 0;
-  font-size: 15px;
+  padding: 0.375rem 0;
+  font-size: 0.938rem;
   position: absolute;
-  top: 38px;
+  top: 2.375rem;
   right: 0;
 }
 
 .story-options-menu-item {
-  padding: 8px 16px;
+  padding: 0.5rem 0.833vw;
   cursor: pointer;
   transition: background 0.15s;
 }
@@ -159,7 +159,7 @@
 #myStoryTile .my-story-options {
   background: #f7f7f7;
   border-radius: 50%;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.08);
   transition: background 0.2s;
 }
 
@@ -168,17 +168,17 @@
 }
 
 #myStoryTile .my-story-menu {
-  min-width: 110px;
+  min-width: 6.875rem;
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.13);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.13);
   z-index: 10;
-  padding: 6px 0;
-  font-size: 15px;
+  padding: 0.375rem 0;
+  font-size: 0.938rem;
 }
 
 #myStoryTile .my-story-menu-item {
-  padding: 8px 16px;
+  padding: 0.5rem 0.833vw;
   cursor: pointer;
   transition: background 0.15s;
 }
@@ -195,33 +195,30 @@
   color: #0095f6;
 }
 
-/* image itself no longer carries the ring – wrapper handles the gradient */
 .story-avatar-img {
   display: block;
   width: 100%;
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #fff;
+  border: 0.125rem solid #fff;
 }
 
-/* viewed state still greys out inner image border if desired */
 .story-tile.story-viewed .story-avatar-img {
   border-color: #ccc;
 }
 
 #myStoryTile .my-story-avatar-wrap {
   position: relative;
-  width: 96px;
-  height: 96px;
+  width: clamp(4.5rem, 5vw, 6rem);
+  height: clamp(4.5rem, 5vw, 6rem);
 }
 
-/* my-story uses wrapper ring too */
 #myStoryTile .my-story-avatar-wrap {
   position: relative;
-  width: 96px;
-  height: 96px;
-  padding: 4px;
+  width: clamp(4.5rem, 5vw, 6rem);
+  height: clamp(4.5rem, 5vw, 6rem);
+  padding: 0.25rem;
   border-radius: 50%;
   background: #eee;
   box-sizing: border-box;
@@ -237,7 +234,7 @@
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #fff;
+  border: 0.125rem solid #fff;
   display: block;
 }
 
@@ -245,8 +242,8 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
   background: #0095f6;
   color: #fff;
@@ -255,9 +252,9 @@
   justify-content: center;
   font-weight: 700;
   line-height: 1;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-  font-size: 20px;
-  border: 2px solid #fff;
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.12);
+  font-size: 1.25rem;
+  border: 0.125rem solid #fff;
   z-index: 2;
   transition: opacity 0.2s;
 }
@@ -266,17 +263,15 @@
    Stories bar
 ========================= */
 #storiesBar {
-  max-width: 750px;
-  min-width: 100px;
+  max-width: 39.063rem;
+  min-width: 5.208vw;
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-  padding-bottom: 8px;
+  padding-bottom: 0.5rem;
   scroll-behavior: smooth;
-
-  /* hide scrollbar */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -288,7 +283,7 @@
 .stories-bar {
   margin-left: 0;
   display: flex;
-  gap: 15px;
+  gap: 0.938rem;
   flex-wrap: nowrap;
   width: max-content;
 }
@@ -306,50 +301,45 @@
   border-radius: 50%;
 }
 
-/* other stories now use .story-avatar-img and avatar-wrap for consistent sizing */
 .story-avatar-wrap {
   position: relative;
-  width: 96px;
-  height: 96px;
-  padding: 4px;          /* ring thickness */
+  width: clamp(4.5rem, 5vw, 6rem);
+  height: clamp(4.5rem, 5vw, 6rem);
+  padding: 0.25rem;
   border-radius: 50%;
   background: linear-gradient(45deg, #ff8e15, #ff8019, #f25b5b, #cc2366, #bc1888);
   box-sizing: border-box;
 }
 
-/* greyed wrapper when story has been viewed */
 .story-tile.story-viewed .story-avatar-wrap {
   background: #eee;
 }
 
-/* ensure the image fills the inner circle */
 .story-avatar-wrap .story-avatar-img {
   width: 100%;
   height: 100%;
 }
 
-/* legacy .story img sizing removed; new styles in .story-avatar-img */
-
 .story p {
-  font-size: 12px;
-  margin-top: 5px;
+  font-size: 0.75rem;
+  margin-top: 0.313rem;
   color: #333;
 }
 
 .close img {
-  width: 96px;
-  height: 96px;
+  width: clamp(4.5rem, 5vw, 6rem);
+  height: clamp(4.5rem, 5vw, 6rem);
   border-radius: 50%;
-  padding: 4px;
+  padding: 0.25rem;
   background: linear-gradient(45deg, #05b51f, #0db504, #3ed004, #04951c, #02a13c);
   object-fit: cover;
-  border: 2px solid white;
+  border: 0.125rem solid white;
   box-sizing: border-box;
 }
 
 .close p {
-  font-size: 12px;
-  margin-top: 5px;
+  font-size: 0.75rem;
+  margin-top: 0.313rem;
   color: black;
 }
 
@@ -365,7 +355,7 @@ body {
   margin: 0;
   font-family: sans-serif;
   background-color: #fafafa;
-  padding-bottom: 80px;
+  padding-bottom: 4.167rem;
 
   --comments-bg: #ffffff;
   --comments-color: #000000;
@@ -389,12 +379,12 @@ body {
 }
 
 .dark-mode .stories-bar img {
-  width: 96px;
-  height: 96px;
+  width: clamp(4.5rem, 5vw, 6rem);
+  height: clamp(4.5rem, 5vw, 6rem);
   border-radius: 50%;
-  padding: 4px;
+  padding: 0.25rem;
   object-fit: cover;
-  border: 2px solid white;
+  border: 0.125rem solid white;
   box-sizing: border-box;
 }
 
@@ -441,8 +431,8 @@ body {
 ========================= */
 .search-bar {
   background-color: #c4c4c4;
-  border-radius: 8px;
-  padding: 4px 8px;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.417vw;
 }
 
 .search-bar input {
@@ -460,7 +450,7 @@ body {
 ========================= */
 .like-btn {
   color: var(--comments-color);
-  font-size: 20px;
+  font-size: 1.25rem;
   border: none;
   background: none;
 }
@@ -474,7 +464,7 @@ body {
 ========================= */
 header {
   background: white;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 0.0625rem solid #ddd;
   padding: 1vh 2vw;
   display: flex;
   justify-content: space-between;
@@ -493,19 +483,19 @@ header {
 ========================= */
 .leftNav {
   z-index: 1;
-  margin-left: 25px;
-  margin-top: 1px;
+  margin-left: 1.302vw;
+  margin-top: 0.063rem;
   position: fixed;
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: bold;
 }
 
 .border {
   position: fixed;
-  margin-top: -893px;
-  border-right: 1px solid #262626;
-  height: 1000px;
-  margin-left: 300px;
+  margin-top: -82.685vh;
+  border-right: 0.0625rem solid #262626;
+  height: 92.593vh;
+  margin-left: 15.625vw;
 }
 
 /* =========================
@@ -513,29 +503,29 @@ header {
 ========================= */
 .followersSuggestions {
   position: absolute;
-  right: 175px;
-  top: 35px;
-  max-width: 300px;
+  right: 9.115vw;
+  top: 2.188rem;
+  max-width: 15.625rem;
 }
 
-@media (max-width: 1800px) {
+@media (max-width: 112.5rem) {
   .followersSuggestions {
-    right: 50px;
+    right: 2.604vw;
   }
 }
 
 .suggestions-header {
-  margin-top: 20px;
-  font-size: 14px;
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   color: gray;
 }
 
 .Help-Links {
-  margin-top: 40px;
+  margin-top: 2.5rem;
   color: gray;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .Help-Links a {
@@ -552,32 +542,32 @@ header {
    Feed & posts
 ========================= */
 .feed {
-  max-width: 700px;
-  margin: 20px auto;
+  max-width: 36.458vw;
+  margin: 1.25rem auto;
 }
 
 .post {
   background: white;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 20px;
+  border-bottom: 0.0625rem solid #ddd;
+  margin-bottom: 1.25rem;
 }
 
 .post-header {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 0.625rem;
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 
 .post-media {
   width: 100%;
-  max-height: 600px;
+  max-height: 55.556vh;
   overflow: hidden;
   background: black;
   display: flex;
@@ -593,12 +583,12 @@ header {
 }
 
 .post-actions {
-  padding: 10px;
-  font-size: 20px;
+  padding: 0.625rem;
+  font-size: 1.25rem;
 }
 
 .post-caption {
-  padding: 0 10px 10px;
+  padding: 0 0.625rem 0.625rem;
 }
 
 .username {
@@ -606,7 +596,7 @@ header {
 }
 
 .custom-container {
-  width: 1600px;
+  width: 83.333vw;
 }
 
 /* highlight new post */
@@ -632,7 +622,7 @@ header {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 75rem) {
   .toggle-mode {
     display: none !important;
   }
@@ -643,15 +633,15 @@ header {
 ========================= */
 .new-post-alert {
   position: fixed;
-  top: 50px;
+  top: 3.125rem;
   left: 50%;
-  transform: translateX(-50%) translateY(-20px);
+  transform: translateX(-50%) translateY(-1.25rem);
   background: linear-gradient(45deg, #ff8e15, #ff8019, #f25b5b, #cc2366, #bc1888);
   color: #fff;
-  padding: 10px 20px;
-  border-radius: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  font-size: 14px;
+  padding: 0.625rem 1.25rem;
+  border-radius: 1.875rem;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2);
+  font-size: 0.875rem;
   z-index: 1050;
   opacity: 0;
   transition: all 0.4s ease;
@@ -667,7 +657,7 @@ header {
 ========================= */
 .post-delete-btn {
   cursor: pointer;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #999;
   transition: color 0.2s ease, transform 0.2s ease;
 }
@@ -680,12 +670,11 @@ header {
 /* =========================
    Double like heart
 ========================= */
-
 .heart-animation {
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 100px;
+  font-size: clamp(4rem, 5.2vw, 6.25rem);
   background: linear-gradient(45deg, #ff5ca4, #a853f3);
   color: transparent;
   -webkit-background-clip: text;
@@ -725,43 +714,43 @@ header {
 }
 
 .comments-header {
-  padding: 15px;
+  padding: 0.938rem;
   font-weight: bold;
-  font-size: 18px;
-  border-bottom: 1px solid #ccc;
+  font-size: 1.125rem;
+  border-bottom: 0.0625rem solid #ccc;
 }
 
 .comments-body {
   flex: 1;
   overflow-y: auto;
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 
 .comments-footer {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
-  border-top: 1px solid #ddd;
+  padding: 0.625rem 0.938rem;
+  border-top: 0.0625rem solid #ddd;
 }
 
 .comments-footer textarea {
   flex: 1;
   resize: none;
-  height: 45px;
-  border-radius: 10px;
-  padding: 10px 14px;
+  height: 2.813rem;
+  border-radius: 0.625rem;
+  padding: 0.625rem 0.729vw;
   background-color: var(--comments-bg);
   color: var(--comments-color);
-  border: 1px solid #ccc;
-  font-size: 14px;
+  border: 0.0625rem solid #ccc;
+  font-size: 0.875rem;
   transition: border 0.2s ease;
 }
 
 .comments-footer img {
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 
 .comments-footer button {
@@ -769,41 +758,41 @@ header {
   background: none;
   color: #0095f6;
   font-weight: bold;
-  font-size: 14px;
-  margin-left: 10px;
+  font-size: 0.875rem;
+  margin-left: 0.625rem;
 }
 
 .comment {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 0.625rem;
+  margin-bottom: 0.938rem;
 }
 
 .comment img {
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .comment-content {
   background-color: var(--comments-bg);
-  padding: 8px 12px;
-  border-radius: 12px;
-  border: 1px solid #e0e0e0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 0.0625rem solid #e0e0e0;
 }
 
 .cmnt-btn {
   background-color: var(--comments-bg);
   border: none;
-  font-size: 20px;
-  padding: 6px 10px;
+  font-size: 1.25rem;
+  padding: 0.375rem 0.521vw;
   cursor: pointer;
 }
 
 .comment-count {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .dark-mode textarea,
@@ -812,7 +801,6 @@ header {
   color: #eee;
 }
 
-/* typing indicator */
 #typing-indicator {
   animation: fadeInOut 1.5s ease-in-out infinite;
   opacity: 0.8;
@@ -862,10 +850,10 @@ header {
 #share-modal .modal-content {
   background-color: var(--comments-bg);
   color: var(--comments-color);
-  border-radius: 20px;
-  width: 750px;
+  border-radius: 1.25rem;
+  width: min(39.063rem, 92vw);
   height: 68vh;
-  padding: 20px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -876,22 +864,22 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 20px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 8px;
-  margin-bottom: 12px;
+  font-size: 1.25rem;
+  border-bottom: 0.0625rem solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 #share-modal .modal-header h4 {
   margin: 0;
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: bold;
 }
 
 #share-modal .modal-header button {
   background: transparent;
   border: none;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: grey;
   cursor: pointer;
 }
@@ -903,15 +891,16 @@ header {
 #friend-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 70px;
+  gap: 3.646vw;
   justify-content: flex-start;
   list-style: none;
 }
 
 #friend-list li {
-  width: 100px;
+  width: 5.208vw;
+  min-width: 5.5rem;
   text-align: center;
-  font-size: 12px;
+  font-size: 0.75rem;
   margin: 0;
   cursor: pointer;
   display: flex;
@@ -926,29 +915,29 @@ header {
 }
 
 .profile-pic {
-  width: 100px;
-  height: 100px;
+  width: clamp(4.5rem, 5.2vw, 6.25rem);
+  height: clamp(4.5rem, 5.2vw, 6.25rem);
   border-radius: 50%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin-bottom: 5px;
+  margin-bottom: 0.313rem;
 }
 
 .username {
   color: var(--comments-color);
   display: block;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 #share-search {
   width: 100%;
-  padding: 12px 16px;
-  border-radius: 10px;
+  padding: 0.75rem 0.833vw;
+  border-radius: 0.625rem;
   background-color: var(--comments-bg);
   color: var(--comments-color);
-  border: 1px solid #888;
-  font-size: 15px;
+  border: 0.0625rem solid #888;
+  font-size: 0.938rem;
   transition: border 0.2s ease, background-color 0.2s ease;
 }
 
@@ -961,14 +950,14 @@ header {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 0.625rem;
+  margin-top: 1.25rem;
 }
 
 .quick-share button {
   background: none;
   border: none;
-  font-size: 26px;
+  font-size: 1.625rem;
   cursor: pointer;
   color: var(--comments-color);
   transition: transform 0.2s ease;
@@ -983,15 +972,15 @@ header {
 }
 
 .share-option i {
-  font-size: 26px;
+  font-size: 1.625rem;
   color: var(--comments-color);
-  margin-bottom: 5px;
+  margin-bottom: 0.313rem;
   display: block;
 }
 
 .share-divider {
-  border-bottom: 1px solid #555;
-  margin: 20px 0;
+  border-bottom: 0.0625rem solid #555;
+  margin: 1.25rem 0;
 }
 
 .share-option {
@@ -1000,19 +989,19 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+  margin: 0.625rem;
   cursor: pointer;
   color: var(--comments-color);
-  font-size: 14px;
+  font-size: 0.875rem;
   width: auto;
 }
 
 .share-option i,
 .share-option svg {
-  width: 50px;
-  height: 50px;
-  font-size: 50px;
-  margin-bottom: 5px;
+  width: 3.125rem;
+  height: 3.125rem;
+  font-size: 3.125rem;
+  margin-bottom: 0.313rem;
   transition: transform 0.2s;
   color: var(--comments-color);
 }
@@ -1036,10 +1025,10 @@ header {
   display: flex;
   height: 100%;
   width: 95%;
-  max-width: 1400px;
+  max-width: 72.917rem;
   background-color: var(--comments-bg);
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-  border-left: 1px solid #ccc;
+  box-shadow: -0.313rem 0 0.938rem rgba(0, 0, 0, 0.3);
+  border-left: 0.0625rem solid #ccc;
 }
 
 .post-preview {
@@ -1058,13 +1047,13 @@ header {
 
 .comments-content {
   width: 50%;
-  padding: 20px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 93.75rem) {
   .sidebar-wrapper {
     flex-direction: column;
   }
@@ -1086,8 +1075,8 @@ header {
   text-align: right;
   font-family: "Heebo", "Arial", sans-serif;
   line-height: 1.6;
-  font-size: 16px;
-  max-width: 600px;
+  font-size: 1rem;
+  max-width: 31.25rem;
   margin: auto;
 }
 
@@ -1097,17 +1086,17 @@ header {
 .canvas-box {
   display: flex;
   justify-content: center;
-  padding-top: 8px;
+  padding-top: 0.5rem;
 }
 
 .square-canvas {
-  width: clamp(240px, 60vmin, 520px);
+  width: clamp(15rem, 60vmin, 32.5rem);
   aspect-ratio: 1 / 1;
   display: block;
   margin: 0 auto;
   background: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 12px;
+  border: 0.0625rem solid #e5e5e5;
+  border-radius: 0.75rem;
 }
 
 /* =========================
@@ -1128,13 +1117,13 @@ header {
 }
 
 .story-frame {
-  width: min(430px, 96vw);
-  height: min(700px, 92vh);
+  width: min(26.875rem, 96vw);
+  height: min(43.75rem, 92vh);
   background: #000;
-  border-radius: 16px;
+  border-radius: 1rem;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.4);
 }
 
 .story-top {
@@ -1142,10 +1131,10 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  padding: 12px 14px 0 14px;
+  padding: 0.75rem 0.729vw 0 0.729vw;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
   z-index: 3;
   pointer-events: auto;
 }
@@ -1154,24 +1143,24 @@ header {
   color: #fff;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .story-user .avatar {
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .story-progress {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  right: 8px;
-  height: 3px;
+  top: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  height: 0.188rem;
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
+  border-radius: 0.188rem;
   overflow: hidden;
 }
 
@@ -1214,8 +1203,21 @@ header {
 
 .story-top .btn-close.story-close {
   margin-left: auto;
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   opacity: 0.9;
   filter: invert(1) grayscale(100%);
+}
+
+.profile-circle {
+  width: 6vh;
+  height: 6vh;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
